@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SignUp from './SignUp';
 import Login from './Login';
 import Dashboard from './Dashboard';
+import ApplicationAdmin from './ApplicationAdmin'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/' element={<Login />} /> {/* Redirect to Login */}
         <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/applicationadmin' element={<ApplicationAdmin />} />
       </Routes>
     </BrowserRouter>
   );
