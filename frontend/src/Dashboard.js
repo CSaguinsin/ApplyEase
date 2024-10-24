@@ -13,7 +13,7 @@ export default function Dashboard() {
     const mockData = [
         {
             "pfp": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy-Ba5YzO02f6VQWhsIruoGC6G0sBGDir2wA&s",
-            "applicantName": "Adrianna Cayube",
+            "applicantName": "Adriana Cayube",
             "email": "cayube@gmail.com",
             "position": "Manager",
             "skills": "5+ years",

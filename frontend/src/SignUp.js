@@ -31,8 +31,12 @@ const SignUp = () => {
   };
 
   return (
-    <div className="bg-blue-500 flex h-screen w-full justify-center items-center">
-      <div>
+    <div className="flex h-screen w-full justify-center items-center">
+      <div className="absolute z-0 top-0 w-auto mt-2 mx-2">
+        <img src='./skyscrapers.png' className="w-screen h-96 object-cover rounded-xl brightness-50" />
+        <div className="absolute inset-0 rounded-xl bg-blue-900 z-10 top-0 opacity-50"></div>
+      </div>
+      <div className="z-50">
         <div className="w-full flex justify-center items-align text-2xl font-bold text-white mb-2">
           Welcome!
         </div>
