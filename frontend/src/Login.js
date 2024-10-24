@@ -6,7 +6,6 @@ export default function Login() {
     return (
         <div className="w-full h-screen flex justify-center items-center bg-blue-500">
             <div>
-
                 <div className="flex justify-center">
                     <img src='./ApplyEase-White@2x.png' className='h-16 mb-6' />
                 </div>
