@@ -10,12 +10,45 @@ import { IoIosNotifications } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 export default function Dashboard() {
+    const mockData = [
+        {
+            "pfp": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy-Ba5YzO02f6VQWhsIruoGC6G0sBGDir2wA&s",
+            "applicantName": "Adrianna Cayube",
+            "email": "cayube@gmail.com",
+            "position": "Manager",
+            "skills": "5+ years",
+        },
+        {
+            "pfp": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy-Ba5YzO02f6VQWhsIruoGC6G0sBGDir2wA&s",
+            "applicantName": "Allyza Toquire",
+            "email": "toquire@gmail.com",
+            "position": "Designer",
+            "skills": "8+ years",
+        },
+        {
+            "pfp": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi_NlCttVjuOav9lft2djxCT01MRF7GLSRGWjhycpj5f6ZXyao",
+            "applicantName": "Carl Saginsin",
+            "email": "saginsin@gmail.com",
+            "position": "Programmer",
+            "skills": "4+ years",
+        },
+        {
+            "pfp": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi_NlCttVjuOav9lft2djxCT01MRF7GLSRGWjhycpj5f6ZXyao",
+            "applicantName": "Kevin Yu",
+            "email": "yu@gmail.com",
+            "position": "Programmer",
+            "skills": "1 year",
+        },
+    ]
     return (
         <>
-            <div className="absolute top-0 left-0 w-full h-64 bg-blue-500">
+            <div>
+                <img src='./Background.png' className="absolute h-64 w-full cover" />
                 <div className="flex">
-                    <Navigation page="Candidate" />
-                    <div className="w-screen m-8">
+                    <div className="fixed">
+                        <Navigation page="Dashboard" />
+                    </div>
+                    <div className="absolute m-8 ml-80">
                         <div className="flex items-center justify-between">
                             <div className="text-white">
                                 Pages / Dashboard
@@ -100,22 +133,19 @@ export default function Dashboard() {
                                     <div className="text-blue-400">
                                         Built by developers
                                     </div>
-                                    <div className="text-black text-3xl font-bold">
+                                    <div className="text-gray-800 text-3xl font-bold">
                                         Craftora
                                     </div>
                                     <div className="text-blue-400 text-xs mb-6">
                                         Empowering creativity through innovative tools and collaborative solutions for makers and visionaries.
                                     </div>
-                                    <Link to="#" className="text-gray-700 text-xs">
-                                        Read more...
-                                    </Link>
                                 </div>
                                 <div>
                                     <img src='./Image.png' className="object-cover w-96 h-full rounded-lg" />
                                 </div>
                             </div>
 
-                            <div className="bg-white rounded-xl h-40 shadow-md border p-2 flex">
+                            <div className="bg-white rounded-xl h-40 shadow-lg border p-2 flex">
                                 <img src="./brooke-cagle-g1Kr4Ozfoac-unsplash 1.png" className="brightness-50 object-cover w-full h-full rounded-lg fill-gray-950" />
                                 <div className="absolute p-2 text-white">
                                     <div className="font-bold text-lg">
@@ -128,20 +158,59 @@ export default function Dashboard() {
                             </div>
                         </div>
                         <div className="m-6 w-11/12 bg-white rounded-xl shadow-md p-6">
-                            <div className="text-gray-600 font-bold text-4xl">
+                            <div className="text-gray-600 font-bold text-4xl mb-12">
                                 Applicant's Table
                             </div>
-                            <div className="flex w-full">
-                                <table className="table-fixed">
+                            <div>
+                                <table className="table-fixed w-full">
                                     <thead>
-                                        <tr>
-                                            <td>CANDIDATE NAME</td>
-                                            <td>JOB TITLE</td>
-                                            <td>STATUS</td>
-                                            <td>APPLICATION DATE</td>
-                                            <td>ACTIONS</td>
+                                        <tr className="border-0 border-b-2">
+                                            <th className="w-full p-4">APPLICANT'S NAME</th>
+                                            <th className="w-full">POSITION</th>
+                                            <th className="w-full">SKILLS</th>
+                                            <th className="w-full">RESUME</th>
+                                            <th className="w-full">COVER LETTER</th>
                                         </tr>
                                     </thead>
+                                    <tbody>
+                                        {mockData.map(data => (
+                                            <tr className="border-0 border-b-2">
+                                                <td className="p-4">
+                                                    <div className="flex">
+                                                        <img src={`${data.pfp}`} className="rounded-lg h-12 mr-5" />
+                                                        <div className="flex-block w-full">
+                                                            <div className="w-full font-bold">
+                                                                {data.applicantName}
+                                                            </div>
+                                                            <div className="w-full">
+                                                                {data.email}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div className="flex justify-center font-bold">
+                                                        {data.position}
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div className="flex justify-center">
+                                                        {data.skills}
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div className="flex justify-center underline">
+                                                        MyResume.pdf
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div className="flex justify-center underline">
+                                                        MyCoverLetter.pdf
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
