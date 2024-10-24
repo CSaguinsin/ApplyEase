@@ -22,7 +22,7 @@ export default function Navigation({ page }) {
                                     <div className="bg-blue-400 mr-4 rounded p-1">
                                         <MdHome className="text-lg text-bold text-white" />
                                     </div>
-                                    Home
+                                    Dashboard
                                 </Link>
                             ) : (
                                 <Link to='#' className="py-2 px-2 flex items-center text-blue-400 text-sm">
