@@ -42,12 +42,13 @@ export default function Dashboard() {
     ]
     return (
         <>
-            <div className="absolute top-0 left-0 w-full h-64 bg-blue-500">
+            <div>
+                <img src='./Background.png' className="absolute h-64 w-full cover" />
                 <div className="flex">
                     <div className="fixed">
                         <Navigation page="Dashboard" />
                     </div>
-                    <div className="w-screen m-8 ml-80">
+                    <div className="absolute m-8 ml-80">
                         <div className="flex items-center justify-between">
                             <div className="text-white">
                                 Pages / Dashboard
@@ -132,7 +133,7 @@ export default function Dashboard() {
                                     <div className="text-blue-400">
                                         Built by developers
                                     </div>
-                                    <div className="text-black text-3xl font-bold">
+                                    <div className="text-gray-800 text-3xl font-bold">
                                         Craftora
                                     </div>
                                     <div className="text-blue-400 text-xs mb-6">
