@@ -2,6 +2,8 @@ import Navigation from './Navigation';
 import { IoPerson } from "react-icons/io5";
 import { IoMdSettings } from "react-icons/io";
 import { IoIosNotifications } from "react-icons/io";
+import { BiSolidEdit } from "react-icons/bi";
+import { RiDeleteBin5Fill } from "react-icons/ri";
 
 import { Link } from "react-router-dom";
 
@@ -97,7 +99,7 @@ export default function ApplicantsTracker() {
                                                 <td className="p-4">
                                                     <div className="flex">
                                                         <img src={`${data.pfp}`} className="rounded-lg h-12 mr-5" />
-                                                        <div className="flex-block w-full">
+                                                        <div className="flex w-full items-center">
                                                             <div className="w-full font-bold">
                                                                 {data.applicantName}
                                                             </div>
@@ -111,7 +113,21 @@ export default function ApplicantsTracker() {
                                                 </td>
                                                 <td>
                                                     <div className="flex justify-center">
-                                                        {data.status}
+                                                        {
+                                                            data.status === "Interview Scheduled" ? (
+                                                                <div className="rounded-full bg-blue-900 p-2 text-white">
+                                                                    {data.status}
+                                                                </div>
+                                                            ) : data.status === "Email Sent" ? (
+                                                                <div className="rounded-full p-2 text-white" style={{ backgroundColor: 'green' }}>
+                                                                    {data.status}
+                                                                </div>
+                                                            ) : (
+                                                                <div className="rounded-full p-2 text-white" style={{ backgroundColor: 'red' }}>
+                                                                    {data.status}
+                                                                </div>
+                                                            )
+                                                        }
                                                     </div>
                                                 </td>
                                                 <td>
@@ -131,7 +147,12 @@ export default function ApplicantsTracker() {
                                                 </td>
                                                 <td>
                                                     <div className="flex justify-center">
-
+                                                        <Link to='#'>
+                                                            <BiSolidEdit className="text-xl rounded m-1" style={{ backgroundColor: 'blue', color: 'white', padding: 2 }} />
+                                                        </Link>
+                                                        <Link to='#'>
+                                                            <RiDeleteBin5Fill className="text-xl rounded m-1" style={{ backgroundColor: 'red', color: 'white', padding: 2 }} />
+                                                        </Link>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -143,7 +164,7 @@ export default function ApplicantsTracker() {
                     </div>
 
                 </div>
-            </div>
+            </div >
         </>
     )
 }

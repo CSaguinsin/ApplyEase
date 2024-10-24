@@ -99,7 +99,7 @@ export default function ApplicationAdmin() {
             <div className="bg-white rounded-xl shadow-md border p-2 flex mt-4 p-6">
               <form onSubmit={handleSubmit} className="w-full">
                 <div className="mr-6">
-                  <div className="text-gray-800 text-5xl font-bold">
+                  <div className="text-gray-600 text-5xl font-bold">
                     Preference Form
                   </div>
                   {/* Job Position Div */}
