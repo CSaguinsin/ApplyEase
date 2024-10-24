@@ -15,14 +15,14 @@ export default function Navigation({ page }) {
                     <ul>
                         <li>
                             {page == "Dashboard" ? (
-                                <Link to='#' className="py-2 px-2 w-52 flex items-center text-black text-sm font-black shadow">
+                                <Link to='/dashboard' className="py-2 px-2 w-52 flex items-center text-black text-sm font-black shadow">
                                     <div className="bg-blue-400 mr-4 rounded p-1">
                                         <MdHome className="text-lg text-bold text-white" />
                                     </div>
                                     Dashboard
                                 </Link>
                             ) : (
-                                <Link to='#' className="py-2 px-2 w-52 flex items-center text-blue-400 text-sm">
+                                <Link to='/dashboard' className="py-2 px-2 w-52 flex items-center text-blue-400 text-sm">
                                     <MdHome className="mr-4 text-xl text-bold" />
                                     Dashboard
                                 </Link>
@@ -31,32 +31,32 @@ export default function Navigation({ page }) {
                         </li>
                         <li>
                             {page == "Generate" ? (
-                                <Link to='#' className="py-2 px-2 w-52 flex items-center text-black text-sm font-black shadow">
+                                <Link to='/applicationadmin' className="py-2 px-2 w-52 flex items-center text-black text-sm font-black shadow">
                                     <div className="bg-blue-400 mr-4 rounded p-1">
                                         <IoIosLink className="text-lg text-bold text-white" />
                                     </div>
                                     Generate Link
                                 </Link>
                             ) : (
-                                <Link to='#' className="py-2 px-2 w-52 flex items-center text-blue-400 text-sm">
+                                <Link to='/applicationadmin' className="py-2 px-2 w-52 flex items-center text-blue-400 text-sm">
                                     <IoIosLink className="mr-4 text-xl text-bold" />
-                                    Generate
+                                    Generate Link
                                 </Link>
                             )
                             }
                         </li>
                         <li>
                             {page == "Tracker" ? (
-                                <Link to='#' className="py-2 px-2 w-52 flex items-center text-black text-sm font-black shadow">
+                                <Link to='/applicantstracker' className="py-2 px-2 w-52 flex items-center text-black text-sm font-black shadow">
                                     <div className="bg-blue-400 mr-4 rounded p-1">
                                         <MdOutlineFolderCopy className="text-lg text-bold text-white" />
                                     </div>
-                                    Applicant's Trackers
+                                    Applicants Trackers
                                 </Link>
                             ) : (
-                                <Link to='#' className="py-2 px-2 w-52 flex items-center text-blue-400 text-sm">
+                                <Link to='/applicantstracker' className="py-2 px-2 w-52 flex items-center text-blue-400 text-sm">
                                     <MdOutlineFolderCopy className="mr-4 text-xl text-bold" />
-                                    Applicant's Tracker
+                                    Applicants Tracker
                                 </Link>
                             )}
                         </li>

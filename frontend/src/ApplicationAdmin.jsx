@@ -70,17 +70,20 @@ export default function ApplicationAdmin() {
   return (
     <>
       <div className="absolute top-0 left-0 w-full h-64 bg-blue-500">
+        <img src='./Background.png' className="absolute h-64 w-full cover z-0" />
         <div className="flex">
-          <Navigation page="Candidate" />
-          <div className="w-screen m-8">
+          <div className="fixed">
+            <Navigation page="Generate" />
+          </div>
+          <div className="w-screen m-8 ml-80 z-50">
             <div className="flex items-center justify-between">
               <div className="text-white">
-                Pages / Dashboard
+                Pages / Preference Form
                 <div className="font-bold">
-                  Dashboard
+                  Preference Form
                 </div>
               </div>
-              <div className="flex items-center font-bold text-white">
+              <div className="flex items-center font-bold text-white ">
                 <Link to="#" className="flex items-center m-3">
                   <IoPerson className="text-white m-1" />
                   Akari
@@ -93,15 +96,15 @@ export default function ApplicationAdmin() {
                 </Link>
               </div>
             </div>
-            <form onSubmit={handleSubmit} className="w-[1323rem] grid grid-cols-2 gap-4">
-              <div className="bg-white rounded-xl shadow-md border p-2 flex">
+            <div className="bg-white rounded-xl shadow-md border p-2 flex mt-4 p-6">
+              <form onSubmit={handleSubmit} className="w-full">
                 <div className="mr-6">
-                  <div className="text-black text-3xl font-bold">
+                  <div className="text-gray-800 text-5xl font-bold">
                     Preference Form
                   </div>
                   {/* Job Position Div */}
-                  <div className="">
-                    <h1 className="text-black pt-[10rem]">Job Position</h1>
+                  <div className="mt-4">
+                    <h1 className="text-black font-bold pt-[10rem]">1. Job Position:</h1>
                     {jobPositions.map((job) => (
                       <div key={job.id} className="acp">
                         <div className="ab mb zn flex flex-col space-x-10">
@@ -111,7 +114,7 @@ export default function ApplicationAdmin() {
                               name="comments"
                               type="checkbox"
                               aria-describedby={`comments-description-${job.id}`}
-                              className="oh sn aej agu azp bpd"
+                              className="oh sn aej agu azp bpd mr-2"
                               onChange={() => handleCheckboxChange(setSelectedJobPositions, job.title)}
                             />
                           </div>
@@ -126,8 +129,8 @@ export default function ApplicationAdmin() {
                   </div>
                   {/* End of job position div */}
                   {/* Educational attainment div */}
-                  <div className="">
-                    <h1 className="text-black pt-[10rem]">Education Requirements:</h1>
+                  <div className="mt-4">
+                    <h1 className="text-black font-bold pt-[10rem]">2. Education Requirements:</h1>
                     {educationLevel.map((education) => (
                       <div key={education.id} className="acp">
                         <div className="ab mb zn flex flex-col space-x-10">
@@ -137,7 +140,7 @@ export default function ApplicationAdmin() {
                               name="comments"
                               type="checkbox"
                               aria-describedby={`comments-description-${education.id}`}
-                              className="oh sn aej agu azp bpd"
+                              className="oh sn aej agu azp bpd mr-2"
                               onChange={() => handleCheckboxChange(setSelectedEducationLevels, education.title)}
                             />
                           </div>
@@ -152,29 +155,30 @@ export default function ApplicationAdmin() {
                   </div>
                   {/* End of educational attainment div */}
                   {/* Work experience div */}
-                  <div>
-                    <h1 className="text-black pt-[10rem]">Work Experience</h1>
-                    <div className="mb-4">
+                  <div className="mt-4">
+                    <h1 className="text-black font-bold pt-[10rem]">3. Work Experience:</h1>
+                    <div className="mb-4 flex items-center">
                       <label
-                        className="block text-gray-700 text-sm font-bold mb-2"
+                        className="text-sm mb-2"
                         htmlFor="experience"
                       >
-                        Minimum years of working experience
+                        Minimum years of working experience:
+                        <input
+                          className="ml-2 shadow border rounded py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          id="experience"
+                          type="number"
+                          placeholder="Years of experience"
+                          value={experience}
+                          onChange={(e) => setExperience(e.target.value)}
+                        />
+                        Years
                       </label>
-                      <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="experience"
-                        type="text"
-                        placeholder="Years of experience"
-                        value={experience}
-                        onChange={(e) => setExperience(e.target.value)}
-                      />
                     </div>
                   </div>
                   {/* End of work experience div */}
                   {/* Skills & competencies div */}
                   <div className="">
-                    <h1 className="text-black pt-[10rem]">Skills & Competencies</h1>
+                    <h1 className="text-black font-bold pt-[10rem]">4. Skills & Competencies:</h1>
                     {skillAndCompetencies.map((skills) => (
                       <div key={skills.id} className="acp">
                         <div className="ab mb zn flex flex-col space-x-10">
@@ -184,7 +188,7 @@ export default function ApplicationAdmin() {
                               name="comments"
                               type="checkbox"
                               aria-describedby={`comments-description-${skills.id}`}
-                              className="oh sn aej agu azp bpd"
+                              className="oh sn aej agu azp bpd mr-2"
                               onChange={() => handleCheckboxChange(setSelectedSkills, skills.title)}
                             />
                           </div>
@@ -199,17 +203,19 @@ export default function ApplicationAdmin() {
                   </div>
                   {/* End of skills & competencies div */}
                 </div>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-blue-800 text-white p-2 text-xs rounded-md shadow focus:outline-none hover:bg-blue-700 hover:text-white"
-              >
-                Submit
-              </button>
-            </form>
+                <div class="flex w-full justify-end">
+                  <button
+                    type="submit"
+                    className="mt-4 bg-blue-800 text-white p-2 text-sm rounded-md shadow focus:outline-none hover:bg-blue-700 hover:text-white"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
+      </div >
     </>
   )
 }
