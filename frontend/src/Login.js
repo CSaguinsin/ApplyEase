@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  const navigate = useNavigate();
+  
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -17,11 +19,12 @@ const Login = () => {
       console.log(response.data);
       if (response.data.success) {
         alert('Login successful!');
+        navigate('/dashboard');  // Redirect to Dashboard
       } else {
-        alert('Invalid credentials.');
+        alert('Signup failed.');
       }
     } catch (error) {
-      console.error('There was an error logging in!', error);
+      console.error('There was an error signing up!', error);
     }
   };
 
