@@ -6,6 +6,8 @@ import { IoIosNotifications } from "react-icons/io";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
+import Modal from './Modal';
+
 const jobPositions = [
   { id: 1, title: "Software Developer" },
   { id: 2, title: "Data Analyst" },
@@ -34,10 +36,19 @@ const skillAndCompetencies = [
 ];
 
 export default function ApplicationAdmin() {
+  const [isOpen, setIsOpen] = useState(false);
   const [selectedJobPositions, setSelectedJobPositions] = useState([]);
   const [selectedEducationLevels, setSelectedEducationLevels] = useState([]);
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [experience, setExperience] = useState('');
+
+  const handleClose = () => {
+    setIsOpen(false);
+  }
+
+  const handleOpen = () => {
+    setIsOpen(true);
+  }
 
   const handleCheckboxChange = (setFunction, value) => {
     setFunction(prevState =>
@@ -68,6 +79,7 @@ export default function ApplicationAdmin() {
   };
 
   return (
+
     <>
       <div className="absolute top-0 left-0 w-full h-64 bg-blue-500">
         <img src='./Background.png' className="absolute h-64 w-full cover z-0" />
@@ -207,9 +219,28 @@ export default function ApplicationAdmin() {
                   <button
                     type="submit"
                     className="mt-4 bg-blue-800 text-white p-2 text-sm rounded-md shadow focus:outline-none hover:bg-blue-700 hover:text-white"
+                    onClick={handleOpen}
                   >
                     Submit
                   </button>
+                  <Modal isOpen={isOpen} onClose={handleClose}>
+                    <div>
+                      <div className="font-bold flex">
+                        Are you sure you want to submit?
+                      </div>
+                      <div className="flex justify-center">
+                        <div className="flex justify-center m-4" style={{ backgroundColor: 'green', color: 'white', padding: 5, borderRadius: 5, width: 100 }}>
+                          Yes
+                        </div>
+                        <div
+                          onClick={handleClose}
+                          className="flex justify-center m-4" style={{ backgroundColor: 'blue', color: 'white', padding: 5, borderRadius: 5, width: 100 }}
+                        >
+                          No
+                        </div>
+                      </div>
+                    </div>
+                  </Modal>
                 </div>
               </form>
             </div>
